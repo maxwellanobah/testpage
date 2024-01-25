@@ -8,7 +8,7 @@
 
     <script>
             //Get Country and Region via IP-API
-            var endpoint = 'http://ip-api.com/json/?fields=status,message,countryCode,region';
+            var endpoint = 'http://ip-api.com/json/{query}?fields=status,message,countryCode,region';
             var xhr = new XMLHttpRequest();
             try {
                 xhr.onreadystatechange = function() {
