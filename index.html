@@ -5,8 +5,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>Maxo"s Testpage</title>    
+script>
+            //Get Country and Region via IP-API
+            var endpoint = 'https://api.country.is';
+            var xhr = new XMLHttpRequest();
+            try {
+                xhr.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = JSON.parse(this.responseText);
+                        if(response.status !== 'success') {
+                            loadUC();
+                            return;
+                        }
+                        //If the visitor comes from US, load Usercentrics with region Code
+                        if (response && response.countryCode && response.countryCode == 'US' && response.region) {
+                            loadUC(response.region);
+                        } else {
+                            //User is not in the US, load UC without region code
+                            loadUC();
+                        }
 
-<script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-ruleset-id="lQICc8x-zlh-He" async></script>
+                    }
+                };
+                xhr.open('GET', endpoint, true);
+                xhr.send();
+            } catch (e) {
+                console.error(e)
+                loadUC();
+            }
+
+            function loadUC(region) {
+                //Set fallback Settings-ID
+                let settingsId = 'g3_PVb5cLna5XI';
+
+                //Overwrite fallback Settings-ID with region-specific ID if available
+                if (region) {
+                    const regionToSettingId = {
+                    "VA": "8E2tssIsgTMng0",
+                    "CA": "Wjtig2hYYpJsiu"
+                    }
+
+                    if (regionToSettingId[region]) {
+                        settingsId = regionToSettingId[region];
+                    }
+                }
+
+                //Create Usercentrics-Script and add to <head>
+                var script = document.createElement('script');
+                script.type = 'text/javascript';
+                script.id = 'usercentrics-cmp'
+                script.src = 'https://app.usercentrics.eu/browser-ui/latest/loader.js';
+                script.setAttribute('data-settings-id', settingsId);
+                script.async = true;
+                document.head.appendChild(script);
+            }
+        </script>
+ <!-- <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-ruleset-id="lQICc8x-zlh-He" async></script> -->
  
     <!-- Matomo -->
 <script type="text/javascript">
