@@ -8,7 +8,7 @@
 
     <script>
             //Get Country and Region via IP-API
-            var endpoint = 'http://ip-api.com/json/{query}?fields=status,message,countryCode,region';
+            var endpoint = 'curl "https://api.ipdata.co/24.24.24.24?api-key=abe7c1419edfc16608ed33557fc300880937c1e90360b88843c4be0d&fields=ip,region_code,country_code';
             var xhr = new XMLHttpRequest();
             try {
                 xhr.onreadystatechange = function() {
@@ -19,8 +19,8 @@
                             return;
                         }
                         //If the visitor comes from US, load Usercentrics with region Code
-                        if (response && response.countryCode && response.countryCode == 'US' && response.region) {
-                            loadUC(response.region);
+                        if (response && response.country_code && response.country_code == 'US' && response.region_code) {
+                            loadUC(response.region_code);
                         } else {
                             //User is not in the US, load UC without region code
                             loadUC();
