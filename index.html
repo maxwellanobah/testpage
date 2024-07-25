@@ -136,7 +136,7 @@
     <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
 <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script> -->
 
-       <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="THSA5quLkv7yrd" async></script> 
+    <!--     <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="THSA5quLkv7yrd" async></script> 
     
           <script type="text/javascript">
         // create dataLayer
@@ -243,9 +243,48 @@ f.parentNode.insertBefore(j, f);
   
   <!-- head performance data end -->
   
+<!-- CONSENT MANAGER INTEGRATION --> 
 
+<link rel="preconnect" href="//privacy-proxy.usercentrics.eu"> 
+
+<link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script"> 
+
+<script id="usercentrics-cmp" data-settings-id="MHrhm7hZl" src="https://web.cmp.usercentrics.eu/ui/loader.js" async></script> 
+
+<script type="application/javascript"
+
+src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
+
+<!-- END OF CONSENT MANAGER INTEGRATION -->
     
+<title>Consent Manager Test page</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    
+    <link rel="stylesheet" href="cm-example.css">
 
+    <!-- GOOGLE FONTS INTEGRATION -->
+    <script type="text/plain" data-usercentrics="Google Fonts">
+        var head  = document.getElementsByTagName('head')[0];
+        var link  = document.createElement('link');
+        link.rel  = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://fonts.googleapis.com/css2?family=Concert+One&family=Kavoon&family=Shrikhand&display=swap';
+        head.appendChild(link);
+    </script>
+    <!-- END OF GOOGLE FONTS INTEGRATION -->
+
+    <!-- GOOGLE ANALYTICS INTEGRATION -->
+    <!-- Google tag (gtag.js) -->
+    <script data-usercentrics="Google Analytics" type="text/plain"  async="" src="https://www.googletagmanager.com/gtag/js?id=G-MSYFZWQ0ZR"></script>
+
+    <script data-usercentrics="Google Analytics" type="text/plain" async="" >
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-MSYFZWQ0ZR');
+    </script>
+    <!-- END OF GOOGLE ANALYTICS INTEGRATION -->
 
 </head>
 
